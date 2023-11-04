@@ -1,16 +1,35 @@
+import asyncio
 import logging
 import os
 
-from dotenv import load_dotenv
+from aiogram import Bot, Dispatcher, types
+from aiogram.filters.command import Command
+from dotenv import load_dotenv, find_dotenv
 
 # logging config
-logging.basicConfig(level=logging.INFO, filename="py_log.log", filemode="w")
+logging.basicConfig(level=logging.INFO)
 
 # load environment
-dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
-if os.path.exists(dotenv_path):
-    load_dotenv(dotenv_path)
+load_dotenv(find_dotenv())
+
+# config variables
+token = os.environ.get('TOKEN')
+
+# bot objects
+bot = Bot(token=token)
+dp = Dispatcher()
+
+
+@dp.message(Command("start"))
+async def command_start(message: types.Message):
+    await message.answer("hewwo uwu!!!")
+
+
+async def main():
+    logging.info('Starting bot')
+    await dp.start_polling(bot)
 
 
 if __name__ == '__main__':
-    logging.info('Environment loaded')
+    asyncio.run(main())
+
