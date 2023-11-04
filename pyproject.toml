@@ -9,6 +9,7 @@ packages = [{include = "aiogram_lessons"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 aiogram = "^3.1.1"
+python-dotenv = "^1.0.0"
 
 
 [build-system]
