@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "aiogram-lessons"
+version = "0.1.0"
+description = ""
+authors = ["collinskekich <collinskek@gmail.com>"]
+readme = "README.md"
+packages = [{include = "aiogram_lessons"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
